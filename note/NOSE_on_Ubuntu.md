@@ -27,12 +27,12 @@ Ubuntu does not visit the default file path to Nose when we run `nosetests`, so 
   - In my case, I run  `cd /usr/local/lib/python3.10`.
 - Run `ls` to list what we have in this directory
   - In my case, I have got two directories `nose` and `nose-1.3.7.dist-info`
-- Run `cp nose /usr/local/bin` [*[source]*](https://www.cnblogs.com/meina/p/13570416.html)
+- Run `cp nose /usr/local/bin` to copy the directory of Nose to `usr/local/bin`[*[source]*](https://www.cnblogs.com/meina/p/13570416.html)
   - Thus, Nose can be found by Ubuntu.
 
 ### Attribute Error
 
-- Run `nosetests`
+- Run `nosetests` now
   - We might meet another problem  `AttributeError: module 'collections' has no attribute 'Callable'`
 
   - In this image, we can see the error is in suite.py.
@@ -41,13 +41,13 @@ Ubuntu does not visit the default file path to Nose when we run `nosetests`, so 
 
 - Run `cd nose`
 
-- Run `nano suite.py` or `sudo nano suite.py`
+- Run `sudo nano suite.py`
 
 - Press `ctrl` + `\` to replace all `collections.Callable` to `collections.abc.Callable` [*[source]*](https://stackoverflow.com/questions/69515086/error-attributeerror-collections-has-no-attribute-callable-using-beautifu)
 
 - Press`ctrl` +`x` , press `y` , and press `Enter` to save the change
 
-- Run `nosetests` and continue to replace `collections.Callable` in python scripts shown
+- Run `nosetests` and continue to replace `collections.Callable` in other python scripts
 
 - When all `collections.Callable` are replaced to `collections.abc.Callable`,  it is OK to do test.
 
@@ -55,9 +55,9 @@ Ubuntu does not visit the default file path to Nose when we run `nosetests`, so 
 
 ### Module NOT Found Error
 
-Run `nosetests <file_name.py>` in project directory, we might get module not found error as shown in the image below. 
+Run `nosetests <file_name.py>` in project directory, we might get module not found error as shown in the image below. We need to install all modules not found with `Run pip install <module_name>`.
 
 ![](nose/module.JPG)
 
-We need to install all modules not found with `Run pip install <module_name>`
+
 
